@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Static Resume Builder</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <h1>Static Resume Builder</h1>
+    <form id="resumeForm">
+
+      <fieldset>
+        <legend>Personal Information</legend>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required /><br /><br />
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required /><br /><br />
+
+        <label for="contact">Phone Number:</label>
+        <input type="tel" id="contact" name="contact" required /><br /><br />
+
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" rows="2" required></textarea
+        ><br /><br />
+
+        <label for="photo">Upload your Photo:</label>
+        <p style="color: red">Must be a professional picture!</p>
+        <input type="file" id="photo" name="photo" accept="image/*" /><br />
+      </fieldset>
+
+      <!-- Objective Section -->
+      <fieldset>
+        <legend>Objective</legend>
+        <textarea
+          id="objective"
+          name="objective"
+          rows="3"
+          placeholder="Write your career objective..."
+          required
+        ></textarea>
+      </fieldset>
+
+      <!-- Education Section -->
+      <fieldset>
+        <legend>Education</legend>
+        <div id="education-section">
+          <div>
+            <label>Institute Name:</label>
+            <input type="text" name="institute[]" required />
+            <label>Degree/Field:</label>
+            <input type="text" name="degree[]" required />
+            <label>Year:</label>
+            <input type="number" name="eduYear[]" required />
+            <button
+              type="button"
+              class="remove-button"
+              onclick="removeField(this)"
+            >
+              -
+            </button>
+          </div>
+        </div>
+        <button type="button" onclick="addEducation()">+ Add Education</button>
+      </fieldset>
+
+      <!-- Experience Section -->
+      <fieldset>
+        <legend>Experience</legend>
+        <div id="experience-section">
+          <div>
+            <label>Company Name:</label>
+            <input type="text" name="company[]" required />
+            <label>Job Title:</label>
+            <input type="text" name="jobTitle[]" required />
+            <label>Start Year:</label>
+            <input type="number" name="expStart[]" required />
+            <label>End Year:</label>
+            <input type="number" name="expEnd[]" required />
+            <button
+              type="button"
+              class="remove-button"
+              onclick="removeField(this)"
+            >
+              -
+            </button>
+          </div>
+        </div>
+        <button type="button" onclick="addExperience()">
+          + Add Experience
+        </button>
+      </fieldset>
+
+      <!-- Certifications Section -->
+      <fieldset>
+        <legend>Certifications</legend>
+        <div id="certifications-section">
+          <div>
+            <label>Certification Name:</label>
+            <input type="text" name="certification[]" required />
+            <label>Issued By:</label>
+            <input type="text" name="certIssuer[]" required />
+            <label>Year:</label>
+            <input type="number" name="certYear[]" required />
+            <button
+              type="button"
+              class="remove-button"
+              onclick="removeField(this)"
+            >
+              -
+            </button>
+          </div>
+        </div>
+        <button type="button" onclick="addCertification()">
+          + Add Certification
+        </button>
+      </fieldset>
+
+      <!-- Skills Section -->
+      <fieldset>
+        <legend>Skills</legend>
+        <div id="skills-section">
+          <div>
+            <input
+              type="text"
+              name="skills[]"
+              placeholder="Enter a skill"
+              required
+            />
+            <buttaon
+              type="button"
+              class="remove-button"
+              onclick="removeField(this)"
+            >
+              -
+            </button>
+          </div>
+        </div>
+        <button type="button" onclick="addSkill()">+ Add Skill</button>
+      </fieldset>
+
+      <!-- Languages Section -->
+      <fieldset>
+        <legend>Languages</legend>
+        <div id="languages-section">
+          <div>
+            <input
+              type="text"
+              name="language[]"
+              placeholder="Enter a language"
+              required
+            />
+            <button
+              type="button"
+              class="remove-button"
+              onclick="removeField(this)"
+            >
+              -
+            </button>
+          </div>
+        </div>
+        <button type="button" onclick="addLanguage()">+ Add Language</button>
+      </fieldset>
+
+      <button type="submit">Generate My Resume</button>
+    </form>
+
+    <div id="resumeContainer"></div>
+    <script src="script.js" defer></script>
+  </body>
+</html>
